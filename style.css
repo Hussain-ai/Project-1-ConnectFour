@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: gray;
+    text-align: center;
+}
+p{
+    font-size: 20px;
+}
+#background{
+    height: auto;
+    width: auto;
+}
+#table{
+    font-size: 24px;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+}
+.cell{
+    width: 75px;
+    height: 75px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.cell:hover{
+    background-color: lightblue;
+}
+#resetBtn{
+    margin-top: 20px;
+    font-size: 24px; 
+    background-color: white;  
+    cursor:pointer; 
+}
+
+.player-one{
+    background-color: red;
+    border-radius: 50%;
+
+}
+.player-two{
+    background-color: yellow;
+    border-radius: 50%;
+}
