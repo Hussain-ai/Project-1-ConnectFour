@@ -27,26 +27,73 @@ function startGame(){
     active=true
 }
 
-function cellClicked(event){
-    board.forEach(row => {
-        if (row[event.target.cell-index[0-0]] == 0){
-            console.log('next')
-        } else {
-            console.log('cell clicked ran!')
-            if (currentPlayer==="player_one"){
-                event.target.classList.add('player-one')
-                event.target.classList.remove('player-two')
-                currentPlayer === "player_two"
+function cellClicked(event) {
+    if (event.target.classList.length < 2) {
+
+        //FOR PLAYER ONE!!!!
+        if (currentPlayer === "player_one") {
+            statusText.textContent = `${currentPlayer}'s turn`
+            let player1_indexOne = event.target.attributes[0].value[0]
+            let player1_indexTwo = event.target.attributes[0].value[2]
+            
+
+           let row = columnCheck(player1_indexTwo)
+            if (row){
+                
+                board[row][player1_indexTwo] = 'R'
+                console.log(board)
+                let fallenCell = document.querySelector(`[cellIndex="${row}-${player1_indexTwo}"]`)
+                console.log(fallenCell)
+                fallenCell.classList.add('player-one')
+                // event.target.classList.add('player-one')
+                console.log(board)
+                currentPlayer = "player_two"  
             }
-            else {
-             currentPlayer === "player_one"
-             event.target.classList.add('player-two')
-             event.target.classList.remove('player-one')
+            else{
+                return
+            }
+            
+        }
+        //----- FOR PLAYER TWO!!!
+        else if (currentPlayer === 'player_two') {
+            statusText.textContent = `${currentPlayer}'s turn`
+            let player2_indexOne = event.target.attributes[0].value[0]
+            let player2_indexTwo = event.target.attributes[0].value[2]
+
+            let row = columnCheck(player2_indexTwo)
+            if (row){
+                
+                board[row][player2_indexTwo] = 'Y'
+                console.log(board)
+
+                let fallenCell = document.querySelector(`[cellIndex="${row}-${player2_indexTwo}"]`)
+                console.log(fallenCell)
+                fallenCell.classList.add('player-two')
+                // event.target.classList.add('player-one')
+                console.log(board)
+                currentPlayer = "player_one"  
+            }
+            else{
+                return
             }
         }
-    })
+    }
 }
-//--
+function columnCheck(column){
+for(let row=5; row>=0; row--){
+if(board[row][column] ==''){
+return row   
+}
+}
+return -1
+}
+//this needs fix
+function winningConditions(row,column){
+if(board[row][column] =='R','R','R','R'){
+
+}
+}
+
 function resetGame(){
     currentPlayer= "player_one"
     cell.forEach(cell => {
@@ -54,14 +101,14 @@ function resetGame(){
         cell.classList.remove('player-two')   
     })
     statusText.textContent = `${currentPlayer}'s turn`
-    // board=[ 
-    //     ["", "", "", "", "", "", ""],
-    //     ["", "", "", "", "", "", ""],
-    //     ["", "", "", "", "", "", ""],
-    //     ["", "", "", "", "", "", ""],
-    //     ["", "", "", "", "", "", ""],
-    //     ["", "", "", "", "", "", ""]
-    //     ]
+    board=[ 
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""]
+        ]
 }
 
 // board.forEach(row => {

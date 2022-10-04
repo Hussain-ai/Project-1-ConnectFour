@@ -12,71 +12,70 @@
 <main id="background">
     <h1>Connect four</h1>
     <div id="playerTurn"></div>
-    <br>
     <div id="scoreBoard">
         <div id=scores>
             <p style="color:darkred;">Red: </p>
             <p id="redScore">0</p>
-            <p style="color:tan;">Yellow: </p>
+            <p style="color:burlywood;">Yellow: </p>
             <p id="yellowScore">0</p>
         </div>
     </div>
     <div id="table">
         <div column1>
         <div cellIndex="0-0" class="cell"></div>
-        <div cellIndex="0-1" class="cell"></div>
-        <div cellIndex="0-2" class="cell"></div>
-        <div cellIndex="0-3" class="cell"></div>
-        <div cellIndex="0-4" class="cell"></div>
-        <div cellIndex="0-5" class="cell"></div>
+        <div cellIndex="1-0" class="cell"></div>
+        <div cellIndex="2-0" class="cell"></div>
+        <div cellIndex="3-0" class="cell"></div>
+        <div cellIndex="4-0" class="cell"></div>
+        <div cellIndex="5-0" class="cell"></div>
     </div>
         <div column2>
-        <div cellIndex="1-0" class="cell"></div>
+        <div cellIndex="0-1" class="cell"></div>
         <div cellIndex="1-1" class="cell"></div>
-        <div cellIndex="1-2" class="cell"></div>
-        <div cellIndex="1-3" class="cell"></div>
-        <div cellIndex="1-4" class="cell"></div>
-        <div cellIndex="1-5" class="cell"></div>
+        <div cellIndex="2-1" class="cell"></div>
+        <div cellIndex="3-1" class="cell"></div>
+        <div cellIndex="4-1" class="cell"></div>
+        <div cellIndex="5-1" class="cell"></div>
     </div>
         <div column3>
-        <div cellIndex="2-0" class="cell"></div>
-        <div cellIndex="2-1" class="cell"></div>
+        <div cellIndex="0-2" class="cell"></div>
+        <div cellIndex="1-2" class="cell"></div>
         <div cellIndex="2-2" class="cell"></div>
-        <div cellIndex="2-3" class="cell"></div>
-        <div cellIndex="2-4" class="cell"></div>
-        <div cellIndex="2-5" class="cell"></div>
+        <div cellIndex="3-2" class="cell"></div>
+        <div cellIndex="4-2" class="cell"></div>
+        <div cellIndex="5-2" class="cell"></div>
     </div>
         <div column4>
-        <div cellIndex="3-0" class="cell"></div>
-        <div cellIndex="3-1" class="cell"></div>
-        <div cellIndex="3-2" class="cell"></div>
+        <div cellIndex="0-3" class="cell"></div>
+        <div cellIndex="1-3" class="cell"></div>
+        <div cellIndex="2-3" class="cell"></div>
         <div cellIndex="3-3" class="cell"></div>
-        <div cellIndex="3-4" class="cell"></div>
-        <div cellIndex="3-5" class="cell"></div>
+        <div cellIndex="4-3" class="cell"></div>
+        <div cellIndex="5-3" class="cell"></div>
     </div>
         <div column5>
-        <div cellIndex="4-0" class="cell"></div>
-        <div cellIndex="4-1" class="cell"></div>
-        <div cellIndex="4-2" class="cell"></div>
-        <div cellIndex="4-3" class="cell"></div>
+        <div cellIndex="0-4" class="cell"></div>
+        <div cellIndex="1-4" class="cell"></div>
+        <div cellIndex="2-4" class="cell"></div>
+        <div cellIndex="3-4" class="cell"></div>
         <div cellIndex="4-4" class="cell"></div>
-        <div cellIndex="4-5" class="cell"></div>
+        <div cellIndex="5-4" class="cell"></div>
     </div>
         <div column6>
-        <div cellIndex="5-0" class="cell"></div>
-        <div cellIndex="5-1" class="cell"></div>
-        <div cellIndex="5-2" class="cell"></div>
-        <div cellIndex="5-3" class="cell"></div>
-        <div cellIndex="5-4" class="cell"></div>
+        <div cellIndex="0-5" class="cell"></div>
+        <div cellIndex="1-5" class="cell"></div>
+        <div cellIndex="2-5" class="cell"></div>
+        <div cellIndex="3-5" class="cell"></div>
+        <div cellIndex="4-5" class="cell"></div>
         <div cellIndex="5-5" class="cell"></div>
     </div>
         <div column7>
-        <div cellIndex="6-0" class="cell"></div>
-        <div cellIndex="6-1" class="cell"></div>
-        <div cellIndex="6-2" class="cell"></div>
-        <div cellIndex="6-3" class="cell"></div>
-        <div cellIndex="6-4" class="cell"></div>
-        <div cellIndex="6-5" class="cell"></div>
+        <div cellIndex="0-6" class="cell"></div>
+        <div cellIndex="1-6" class="cell"></div>
+        <div cellIndex="2-6" class="cell"></div>
+        <div cellIndex="3-6" class="cell"></div>
+        <div cellIndex="4-6" class="cell"></div>
+        <div cellIndex="5-6" class="cell"></div>
     </div>
 </div>       
     <div id="winner"></div>
