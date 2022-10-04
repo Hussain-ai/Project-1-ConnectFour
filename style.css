@@ -30,7 +30,7 @@ p{
     cursor:pointer;
 }
 .cell:hover{
-    background-color: lightblue;
+    background-color: rgba(173, 216, 230, 0.8);
 }
 #resetBtn{
     margin-top: 20px;

@@ -57,7 +57,7 @@ function cellClicked(event) {
         //----- FOR PLAYER TWO!!!
         else if (currentPlayer === 'player_two') {
             statusText.textContent = `${currentPlayer}'s turn`
-            let player2_indexOne = event.target.attributes[0].value[0]
+            let player2_indexOne = event.target.attributes[0].value[2]
             let player2_indexTwo = event.target.attributes[0].value[2]
 
             let row = columnCheck(player2_indexTwo)
@@ -85,7 +85,7 @@ if(board[row][column] ==''){
 return row   
 }
 }
-return -1
+return 
 }
 //this needs fix
 function winningConditions(row,column){
