@@ -1,13 +1,12 @@
 //Variables
-const statusText = document.querySelector('#playerTurn')
+const playerStatus = document.querySelector('#playerTurn')
 const redScore = document.querySelector('#redScore')
 const yellowScore = document.querySelector('#yellowScore')
 const table = document.querySelector('#table')
 const cell = document.querySelectorAll('.cell')
-const player1 = document.querySelector('.player-one')
-const player2 = document.querySelector('.player-two')
+// const player1 = document.querySelector('.player-one')
+// const player2 = document.querySelector('.player-two')
 const resetBtn = document.querySelector('#resetBtn')
-const cellIndex = document.querySelector('cellIndex')
 const winningArrays = [
     [0, 1, 2, 3],
     [41, 40, 39, 38],
@@ -93,78 +92,59 @@ startGame()
 
 function startGame(){
     if (active === true){
-    console.log('startgame running')
-    cell.forEach(cell => cell.addEventListener('click', cellClicked))
-
-    resetBtn.addEventListener('click', resetGame)
-    statusText.textContent = ` ${currentPlayer}'s turn`
-}else{
-    active=false
+        console.log('startgame running')
+        cell.forEach(cell => cell.addEventListener('click', fillCell))
+        resetBtn.addEventListener('click', resetGame)
+        playerStatus.textContent = ` Player Red's turn`
+        redScore.textContent = `Red Score: ${0}`
+        yellowScore.textContent = `Yellow Score: ${0}`
+    }
 }
+
+function columnCheck(clickedCell){
+    //check if cell is empty
+    if(clickedCell.classList.length<2){
+        console.log(clickedCell.id)
+        let clickIdNum = parseInt(clickedCell.id)+7
+
+        console.log(String(clickIdNum))
+
+        let str = String(clickIdNum)
+        
+        let cellBelow = document.getElementById(str)
+        console.log(cellBelow)
+        if(clickedCell.id >=35 || cellBelow.classList.length===2 ){
+            return true
+        }
+    }
+}
+
+function fillCell(clickedCell){
+    if (currentPlayer === "player_one") {
+        
+        clickedCell.target.classList.add('color-red')
+        console.log(board)
+        playerStatus.textContent = ` Player Yellow's turn`
+        currentPlayer= "player_two"
+        
+        // redScore.textContent= redScore
+        
+    }else{
+        
+        console.log('current player else')
+        clickedCell.target.classList.add('color-yellow')
+        
+        playerStatus.textContent = ` Player Red's turn`
+        currentPlayer = "player_one"
+    }
 }
 
 function cellClicked(event){
-    let clickedCell=event.target
-    if (event.target.classList.length < 2){
-        //---- for player one
-        if (currentPlayer === "player_one") {
-            clickedCell.classList.add('player-one')
-              let player1_index = event.target
-              let player2_index = event.target
-
-              let row = columnCheck(player1_index)
-              if (row){
-                board[row][player2_index] = 'Y'
-                console.log(board)
-
-                let fallenCell = document.querySelector(`[cellIndex="${row}-${player2_index}"]`)
-                console.log(fallenCell)
-                fallenCell.classList.add('player-two')
-                // event.target.classList.add('player-one')
-                console.log(board)
-                currentPlayer = "player_one"  
-            }
-            else{
-                return
-              }
-        }    
-        //---- For player two
-        else if (currentPlayer === 'player_two') {
-            statusText.textContent = `${currentPlayer}'s turn`
-            let player2_index = event.target
-            
-
-            let row = columnCheck(player2_index)
-            if (row){
-                
-                board[row][player2_index] = 'Y'
-                console.log(board)
-
-                let fallenCell = document.querySelector(`[cellIndex="${row}-${player2_index}"]`)
-                console.log(fallenCell)
-                fallenCell.classList.add('player-two')
-                // event.target.classList.add('player-one')
-                console.log(board)
-                currentPlayer = "player_one"  
-            }
-            else{
-                return
+    let clickedCell = event.target
+    if(columnCheck(clickedCell)){
+        fillCell(clickedCell)
     }
 }
-
-
-
-
-function columnCheck(column){
-    for(let row=5; row>=0; row--){
-    if(board[row][column] ==''){
-    return row   
-    }
-    }
-    return 
-    }
-
-
 
 function scoring(event){
     if (winningArrays=== board){
@@ -173,13 +153,13 @@ function scoring(event){
 }
 
 
-    function resetGame(){
-        currentPlayer= "player_one"
+function resetGame(){
+    currentPlayer= "player_one"
         cell.forEach(cell => {
-            cell.classList.remove('player-one')
-            cell.classList.remove('player-two')   
+            cell.classList.remove('color-red')
+            cell.classList.remove('color-yellow')   
         })
-        statusText.textContent = `${currentPlayer}'s turn`
+        playerStatus.textContent = ` Player Red's turn`
         board=[ 
             ["", "", "", "", "", "", ""],
             ["", "", "", "", "", "", ""],
@@ -188,4 +168,4 @@ function scoring(event){
             ["", "", "", "", "", "", ""],
             ["", "", "", "", "", "", ""]
             ]
-    }}}
+    }

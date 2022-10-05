@@ -49,12 +49,12 @@ font-size: 24px;
     border-radius: 10%;
 }
 
-.player-one{
+.color-red{
     background-color: red;
     border-radius: 50%;
 
 }
-.player-two{
+.color-yellow{
     background-color: yellow;
     border-radius: 50%;
 }
