@@ -9,63 +9,73 @@
     <title>Connect-Four</title>
 </head>
 <body>
-    <main id="background">
+<main id="background">
     <h1>Connect four</h1>
     <div id="playerTurn"></div>
+    </div>
     <div id="table">
-        <div id="0" class="cell"></div>
-        <div id="1" class="cell"></div>
-        <div id="2" class="cell"></div>
-        <div id="3" class="cell"></div>
-        <div id="4" class="cell"></div>
-        <div id="5" class="cell"></div>
-        <div id="6" class="cell"></div>
-
-        <div id="7" class="cell"></div>
-        <div id="8" class="cell"></div>
-        <div id="9" class="cell"></div>
-        <div id="10" class="cell"></div>
-        <div id="11" class="cell"></div>
-        <div id="12" class="cell"></div>
-        <div id="13" class="cell"></div>
-
-        <div id="14" class="cell"></div>
-        <div id="15" class="cell"></div>
-        <div id="16" class="cell"></div>
-        <div id="17" class="cell"></div>
-        <div id="18" class="cell"></div>
-        <div id="19" class="cell"></div>
-        <div id="20" class="cell"></div>
-
-        <div id="21" class="cell"></div>
-        <div id="22" class="cell"></div>
-        <div id="23" class="cell"></div>
-        <div id="24" class="cell"></div>
-        <div id="25" class="cell"></div>
-        <div id="26" class="cell"></div>
-        <div id="27" class="cell"></div>
-
-        <div id="28" class="cell"></div>
-        <div id="29" class="cell"></div>
-        <div id="30" class="cell"></div>
-        <div id="31" class="cell"></div>
-        <div id="32" class="cell"></div>
-        <div id="33" class="cell"></div>
-        <div id="34" class="cell"></div>
-        
-        <div id="35" class="cell"></div>
-        <div id="36" class="cell"></div>
-        <div id="37" class="cell"></div>
-        <div id="38" class="cell"></div>
-        <div id="39" class="cell"></div>
-        <div id="40" class="cell"></div>
-        <div id="41" class="cell"></div>
-        </div>
-        <h2>Scores Below</h2>
-    <div id="redScore"></div>
-    <div id="yellowScore"></div>
-    <div id="winner"></div>
-    <button id="resetBtn">Reset</button>
+        <div column1>
+        <div cellIndex="0-0" class="cell"></div>
+        <div cellIndex="1-0" class="cell"></div>
+        <div cellIndex="2-0" class="cell"></div>
+        <div cellIndex="3-0" class="cell"></div>
+        <div cellIndex="4-0" class="cell"></div>
+        <div cellIndex="5-0" class="cell"></div>
+    </div>
+        <div column2>
+        <div cellIndex="0-1" class="cell"></div>
+        <div cellIndex="1-1" class="cell"></div>
+        <div cellIndex="2-1" class="cell"></div>
+        <div cellIndex="3-1" class="cell"></div>
+        <div cellIndex="4-1" class="cell"></div>
+        <div cellIndex="5-1" class="cell"></div>
+    </div>
+        <div column3>
+        <div cellIndex="0-2" class="cell"></div>
+        <div cellIndex="1-2" class="cell"></div>
+        <div cellIndex="2-2" class="cell"></div>
+        <div cellIndex="3-2" class="cell"></div>
+        <div cellIndex="4-2" class="cell"></div>
+        <div cellIndex="5-2" class="cell"></div>
+    </div>
+        <div column4>
+        <div cellIndex="0-3" class="cell"></div>
+        <div cellIndex="1-3" class="cell"></div>
+        <div cellIndex="2-3" class="cell"></div>
+        <div cellIndex="3-3" class="cell"></div>
+        <div cellIndex="4-3" class="cell"></div>
+        <div cellIndex="5-3" class="cell"></div>
+    </div>
+        <div column5>
+        <div cellIndex="0-4" class="cell"></div>
+        <div cellIndex="1-4" class="cell"></div>
+        <div cellIndex="2-4" class="cell"></div>
+        <div cellIndex="3-4" class="cell"></div>
+        <div cellIndex="4-4" class="cell"></div>
+        <div cellIndex="5-4" class="cell"></div>
+    </div>
+        <div column6>
+        <div cellIndex="0-5" class="cell"></div>
+        <div cellIndex="1-5" class="cell"></div>
+        <div cellIndex="2-5" class="cell"></div>
+        <div cellIndex="3-5" class="cell"></div>
+        <div cellIndex="4-5" class="cell"></div>
+        <div cellIndex="5-5" class="cell"></div>
+    </div>
+        <div column7>
+        <div cellIndex="0-6" class="cell"></div>
+        <div cellIndex="1-6" class="cell"></div>
+        <div cellIndex="2-6" class="cell"></div>
+        <div cellIndex="3-6" class="cell"></div>
+        <div cellIndex="4-6" class="cell"></div>
+        <div cellIndex="5-6" class="cell"></div>
+    </div>
+</div>
+<h2>Scores: </h2>       
+<div id="redScore"></div>
+<div id="yellowScore"></div>
+<div id="winner"></div>
+<button id="resetBtn">Reset</button>
 </main>
 </body>
 </html>
