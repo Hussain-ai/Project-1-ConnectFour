@@ -3,10 +3,13 @@ const redScore = document.querySelector('#redScore')
 const yellowScore = document.querySelector('#yellowScore')
 const table = document.querySelector('#table')
 const cell = document.querySelectorAll('.cell')
-const player1 = document.querySelector('.player-one')
-const player2 = document.querySelector('.player-two')
+// const player1 = document.querySelector('.player-one')
+// const player2 = document.querySelector('.player-two')
 const resetBtn = document.querySelector('#resetBtn')
 const cellIndex = document.querySelector('cellIndex')
+const incrementCount_Red = document.getElementById("score-giver-red");
+const incrementCount_Yellow = document.getElementById("score-giver-yellow");
+const resetScore = document.querySelector('#resetScore')
 let board=[ 
 ["", "", "", "", "", "", ""],
 ["", "", "", "", "", "", ""],
@@ -17,16 +20,33 @@ let board=[
 ]
 let currentPlayer = "player_one";
 let active=false
+let countRed=0 
+let countYellow=0
+const handleIncrement_Red = () => {
+    countRed++;
+    redScore.innerHTML = `Red Score: ${countRed}`
+}
+const handleIncrement_Yellow = () => {
+    countYellow++;
+    yellowScore.innerHTML = `Yellow Score: ${countYellow}`
+  };
+const resetBothScores = () => {
+    redScore.innerHTML = `Red Score: ${countRed=0}`
+    yellowScore.innerHTML = `Yellow Score: ${countYellow=0}`
+}
 //it will check for any winning conditions
 startGame()
 function startGame(){
     console.log('startgame running')
     cell.forEach(cell => cell.addEventListener('click', cellClicked))
     resetBtn.addEventListener('click', resetGame)
-    playerStatus.textContent = ` Player Red's turn`
-    redScore.textContent = `Red Score: ${0}`
-    yellowScore.textContent = `Yellow Score: ${0}`
-    active=true
+    // playerStatus.textContent = ` Player Red's turn`
+    redScore.innerHTML = `Red Score: ${countRed}`
+    yellowScore.textContent = `Yellow Score: ${countYellow}`
+    incrementCount_Red.addEventListener("click", handleIncrement_Red);
+    incrementCount_Yellow.addEventListener("click", handleIncrement_Yellow);
+    resetScore.addEventListener('click', resetBothScores)
+    
 }
 
 function cellClicked(event) {
@@ -34,8 +54,8 @@ function cellClicked(event) {
 
         //FOR PLAYER ONE!!!!
         if (currentPlayer === "player_one") {
-            playerStatus.textContent = ` Player Red's turn`
-            let player1_indexOne = event.target.attributes[0].value[0]
+            playerStatus.textContent = ` Player Yellow's turn`
+            // let player1_indexOne = event.target.attributes[0].value[0]
             let player1_indexTwo = event.target.attributes[0].value[2]
             
 
@@ -50,6 +70,7 @@ function cellClicked(event) {
                 // event.target.classList.add('player-one')
                 console.log(board)
                 currentPlayer = "player_two"  
+                
             }
             else{
                 return
@@ -58,13 +79,12 @@ function cellClicked(event) {
         }
         //----- FOR PLAYER TWO!!!
         else if (currentPlayer === 'player_two') {
-            playerStatus.textContent = ` Player Yellow's turn`
-            let player2_indexOne = event.target.attributes[0].value[0]
+            playerStatus.textContent = ` Player Red's turn`
+            // let player2_indexOne = event.target.attributes[0].value[0]
             let player2_indexTwo = event.target.attributes[0].value[2]
 
             let row = columnCheck(player2_indexTwo)
-            if (row){
-                
+            if (row){ 
                 board[row][player2_indexTwo] = 'Y'
                 console.log(board)
 
@@ -82,7 +102,7 @@ function cellClicked(event) {
     }
 }
 function columnCheck(column){
-for(let row=5; row>=0; row--){
+for(let row=5 ; row>=1; row--){
 if(board[row][column] ==''){
 return row   
 }
@@ -90,8 +110,16 @@ return row
 return -1
 }
 //this needs fix
-function winningConditions(row,column){
-if(board[row][column] =='R','R','R','R'){
+function winningConditions(){
+if(    board=[ 
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", ""],
+    ["R", "R", "R", "R", "", "", ""]
+    ]){
+        redScore.textContent = `Red Score: ${0+1}`
 }
 }
 
@@ -111,20 +139,3 @@ function resetGame(){
         ["", "", "", "", "", "", ""]
         ]
 }
-
-// board.forEach(row => {
-//     if (row[0] == ''){
-//         return
-//     } else {
-//         if (currentPlayer==="player_one"){
-//             event.target.classList.add('player-one')
-//             event.target.classList.remove('player-two')
-//             currentPlayer === "player_two"
-//         }
-//         else {
-//          currentPlayer === "player_one"
-//          event.target.classList.add('player-two')
-//          event.target.classList.remove('player-one')
-//         }
-//     }
-// })

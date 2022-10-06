@@ -41,6 +41,7 @@ body{
     background-color: lightblue;
 }
 #resetBtn{
+    margin-top: 5px;
     padding: 10px;
     font-size: 24px; 
     background-color: white;  
@@ -58,4 +59,10 @@ body{
 .color-yellow{
     background-color: yellow;
     border-radius: 50%;
+}
+
+#score-giver-red, #score-giver-yellow, #resetScore {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
 }
