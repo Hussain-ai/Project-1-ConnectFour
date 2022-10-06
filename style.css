@@ -2,13 +2,16 @@
     padding: 0;
     margin: 0;
     text-align: center;
+    color: white;
+    outline-color: black;
     
 }
+
 p{
     font-size: 20px;
 }
 body{
-    background: rgb(206, 200, 173);
+    background-image:url("/Background\ image.jpg");
 }
 #playerTurn{
     font-size: 24px;
@@ -41,6 +44,7 @@ body{
     background-color: lightblue;
 }
 #resetBtn{
+    color: black;
     margin-top: 5px;
     padding: 10px;
     font-size: 24px; 
@@ -48,21 +52,37 @@ body{
     cursor:pointer; 
     border-radius: 10%;
 }
-#redScore, #yellowScore{
-    font-size: 20px;
+#redScore{
+    font-size: 24px;
+    color: red;
+}
+#yellowScore{
+    font-size: 24px;
+    color: yellow;
 }
 .color-red{
     background-color: red;
+    background-image: url('/RedShip.png');
+    background-size: cover;
     border-radius: 50%;
 
 }
 .color-yellow{
     background-color: yellow;
+    background-image: url('/YellowShip.png');
+    background-size: cover;
     border-radius: 50%;
 }
 
 #score-giver-red, #score-giver-yellow, #resetScore {
+    color: black;
     cursor: pointer;
     padding: 5px;
     font-size: 16px;
+}
+
+.color-green{
+    background-image:url("/Habitable_Planet.PNG");
+    background-size: cover;
+    border-radius:50%;
 }

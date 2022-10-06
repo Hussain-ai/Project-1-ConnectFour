@@ -46,6 +46,7 @@ function startGame(){
     incrementCount_Red.addEventListener("click", handleIncrement_Red);
     incrementCount_Yellow.addEventListener("click", handleIncrement_Yellow);
     resetScore.addEventListener('click', resetBothScores)
+
     
 }
 
@@ -55,15 +56,14 @@ function cellClicked(event) {
         //FOR PLAYER ONE!!!!
         if (currentPlayer === "player_one") {
             playerStatus.textContent = ` Player Yellow's turn`
-            // let player1_indexOne = event.target.attributes[0].value[0]
+            let player1_indexOne = event.target.attributes[0].value[0]
             let player1_indexTwo = event.target.attributes[0].value[2]
             
 
            let row = columnCheck(player1_indexTwo)
             if (row){
-                
+                // board[player1_indexOne][player1_indexTwo] = 'R'
                 board[row][player1_indexTwo] = 'R'
-                console.log(board)
                 let fallenCell = document.querySelector(`[cellIndex="${row}-${player1_indexTwo}"]`)
                 console.log(fallenCell)
                 fallenCell.classList.add('color-red')
@@ -86,7 +86,6 @@ function cellClicked(event) {
             let row = columnCheck(player2_indexTwo)
             if (row){ 
                 board[row][player2_indexTwo] = 'Y'
-                console.log(board)
 
                 let fallenCell = document.querySelector(`[cellIndex="${row}-${player2_indexTwo}"]`)
                 console.log(fallenCell)
@@ -102,26 +101,26 @@ function cellClicked(event) {
     }
 }
 function columnCheck(column){
-for(let row=5 ; row>=1; row--){
+for(let row=5 ; row>=0; row--){
 if(board[row][column] ==''){
 return row   
 }
 }
-return -1
+return 
 }
 //this needs fix
-function winningConditions(){
-if(    board=[ 
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", ""],
-    ["R", "R", "R", "R", "", "", ""]
-    ]){
-        redScore.textContent = `Red Score: ${0+1}`
-}
-}
+// function winningConditions(){
+// if(    board=[ 
+//     ["", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", ""],
+//     ["R", "R", "R", "R", "", "", ""]
+//     ]){
+//         redScore.textContent = `Red Score: ${0+1}`
+// }
+// }
 
 function resetGame(){
     currentPlayer= "player_one"
