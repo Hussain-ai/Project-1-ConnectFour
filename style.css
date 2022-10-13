@@ -3,7 +3,8 @@
     margin: 0;
     text-align: center;
     color: white;
-    outline-color: black;
+    stroke:black;
+    stroke-width: 1px;
     
 }
 
@@ -12,6 +13,7 @@ p{
 }
 body{
     background-image:url("/Background\ image.jpg");
+    background-size: cover;
 }
 #playerTurn{
     font-size: 24px;
@@ -65,9 +67,21 @@ body{
     background-image: url('/RedShip.png');
     background-size: cover;
     border-radius: 50%;
-
 }
+.red-piece{
+    background-color: red;
+    background-image: url('/RedShip.png');
+    background-size: cover;
+    border-radius: 50%;
+}
+
 .color-yellow{
+    background-color: yellow;
+    background-image: url('/YellowShip.png');
+    background-size: cover;
+    border-radius: 50%;
+}
+.yellow-piece{
     background-color: yellow;
     background-image: url('/YellowShip.png');
     background-size: cover;
@@ -80,9 +94,33 @@ body{
     padding: 5px;
     font-size: 16px;
 }
-
 .color-green{
     background-image:url("/Habitable_Planet.PNG");
     background-size: cover;
     border-radius:50%;
+}
+#music-button{
+    color: black;
+    background-color: darkgrey;
+    margin-left: -95%;
+    cursor:pointer;
+}
+
+#board{
+    height: 540px;
+    width: 630px;
+    background-color:rgba(199, 166, 166, 0.9);
+    border: 10px solid navy;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.tile {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+
+    border-radius: 50%;
+    border: 5px solid navy;
+    cursor:pointer;
 }
