@@ -1,7 +1,7 @@
 const playerStatus = document.querySelector('#playerTurn')
 const redScore = document.querySelector('#redScore')
 const yellowScore = document.querySelector('#yellowScore')
-const table = document.querySelector('#table')
+// const table = document.querySelector('#table')
 const tile = document.querySelectorAll('.cell')
 // const player1 = document.querySelector('.player-one')
 // const player2 = document.querySelector('.player-two')
@@ -83,7 +83,7 @@ function setPiece() {
     if (r < 0) { 
         return;
     }
-    console.log(currPlayer)
+    console.log(board)
 
     board[r][c] = currPlayer; //had problem here
 
@@ -228,9 +228,20 @@ function setWinner(r, c) {
 
 function resetGame(){
     currPlayer= playerRed
-        tile.appendChild.classList.remove('red-piece')
-        tile.appendChild.classList.remove('yellow-piece')   
-
+    document.querySelectorAll(".tile").forEach(tile => {
+        tile.classList.remove("red-piece", "yellow-piece");
+      });
+    //   board[r][c].forEach=' '
+      board=[ 
+        [" ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " "],
+        [" ", " ", " ", " ", " ", " ", " "]
+        ]
+        currColumns = [5, 5, 5, 5, 5, 5, 5];
+        console.log(board)
     playerStatus.textContent = ` Player Red's turn`
     gameOver=false;
 }
